@@ -1,8 +1,8 @@
 <script setup lang="ts" generic="T extends string">
 import { ref } from "vue";
+import { getWidestText } from "../utils";
 import Button from "./Button.vue";
 import Expand from "./Icons/Expand.vue";
-import { getWidestText } from "../utils";
 
 const id = Math.random().toString();
 const props = defineProps<{
