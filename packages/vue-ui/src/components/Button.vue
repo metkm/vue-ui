@@ -25,17 +25,17 @@ watchEffect(() => {
 <template>
   <button
     ref="buttonElement"
-    class="
-      flex gap-2 items-center relative w-40
-      px-4 py-2 bg-neutral-900 rounded-lg text-sm transition-all"
-    >
-    <TransitionGroup
-      name="icon"
-      :duration="2000"
-    >
-      <Spinner v-if="showSpinner" key="icon-spin" />
-      <div v-else-if="$slots.icon" key="icon-user">
-        <slot name="icon"></slot>
+    class="flex gap-2 items-center relative px-4 py-2 bg-neutral-900 rounded-lg text-sm transition-all"
+  >
+    <TransitionGroup name="icon">
+      <slot v-if="showSpinner" name="spinner" key="icon-spin">
+        <Spinner />
+      </slot>
+      <div
+        v-else-if="$slots.icon"
+        key="icon-user"
+      >
+        <slot name="icon" class="w-5 h-5 overflow-hidden"></slot>
       </div>
 
       <div key="content">

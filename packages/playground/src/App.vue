@@ -2,6 +2,7 @@
 import { Input, Button } from "vue-ui";
 import "vue-ui/style.css";
 
+import Download from "./components/Icons/Download.vue";
 import { ref } from "vue";
 
 const username = ref("");
@@ -18,6 +19,9 @@ const promise = new Promise(resolve => {
 
     <div class="component">
       <Button :promise="promise">
+        <template #icon>
+          <Download />
+        </template>
         <p class="w-fit">Increment</p>
       </Button>
     </div>
