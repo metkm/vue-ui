@@ -1,0 +1,7 @@
+{
+  "name": "vue-ui",
+  "workspaces": [
+    "packages/vue-ui",
+    "packages/playground"
+  ]
+}
