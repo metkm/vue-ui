@@ -12,7 +12,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="flex flex-col w-fit text-sm dark:text-white">
+  <div class="flex flex-col text-sm dark:text-white">
     <label v-if="label" :for="id" class="ml-1">{{ label }}</label>
     <input
       :id="id"
