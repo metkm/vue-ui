@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Input, Button } from "vue-ui";
-import "vue-ui/style.css";
+import { Input, Button, Select } from "vue-ui";
 
 import Download from "./components/icons/Download.vue";
 import { ref } from "vue";
@@ -9,6 +8,9 @@ const username = ref("");
 const promise = new Promise((resolve) => {
   setTimeout(resolve, 5000);
 });
+
+const items = ["first", "second", "some long text"];
+const item = ref();
 </script>
 
 <template>
@@ -24,6 +26,11 @@ const promise = new Promise((resolve) => {
         </template>
         <p class="w-fit">Increment</p>
       </Button>
+    </div>
+
+    <div class="component">
+      <Select v-model="item" :items="items" />
+      <p>Selected {{ item }}</p>
     </div>
   </main>
 </template>

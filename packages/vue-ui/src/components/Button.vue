@@ -1,10 +1,12 @@
 <script setup lang="ts" generic="T">
-import { ref, watchEffect } from "vue";
+import { ref, watchEffect, HTMLAttributes } from "vue";
 import Spinner from "./Icons/Spinner.vue";
 
-const props = defineProps<{
+interface Props extends /* @vue-ignore */ HTMLAttributes {
   promise?: Promise<T> | boolean;
-}>();
+}
+
+const props = defineProps<Props>();
 
 const showSpinner = ref(false);
 
@@ -23,7 +25,7 @@ watchEffect(() => {
 
 <template>
   <button
-    class="flex gap-2 items-center relative px-4 py-2 bg-neutral-900 rounded-lg text-sm transition-all"
+    class="flex gap-2 items-center relative px-4 py-2 bg-neutral-100 dark:bg-neutral-900 rounded-lg text-sm transition-all"
   >
     <TransitionGroup name="icon">
       <slot v-if="showSpinner" name="spinner" key="icon-spin">
@@ -33,9 +35,7 @@ watchEffect(() => {
         <slot name="icon" class="w-5 h-5 overflow-hidden"></slot>
       </div>
 
-      <div key="content">
-        <slot></slot>
-      </div>
+      <slot></slot>
     </TransitionGroup>
   </button>
 </template>
