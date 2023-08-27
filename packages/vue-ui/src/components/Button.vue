@@ -29,10 +29,7 @@ watchEffect(() => {
       <slot v-if="showSpinner" name="spinner" key="icon-spin">
         <Spinner />
       </slot>
-      <div
-        v-else-if="$slots.icon"
-        key="icon-user"
-      >
+      <div v-else-if="$slots.icon" key="icon-user">
         <slot name="icon" class="w-5 h-5 overflow-hidden"></slot>
       </div>
 

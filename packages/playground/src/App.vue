@@ -2,13 +2,13 @@
 import { Input, Button } from "vue-ui";
 import "vue-ui/style.css";
 
-import Download from "./components/Icons/Download.vue";
+import Download from "./components/icons/Download.vue";
 import { ref } from "vue";
 
 const username = ref("");
-const promise = new Promise(resolve => {
+const promise = new Promise((resolve) => {
   setTimeout(resolve, 5000);
-})
+});
 </script>
 
 <template>
@@ -30,7 +30,8 @@ const promise = new Promise(resolve => {
 
 <style>
 @media (prefers-color-scheme: dark) {
-  html, body {
+  html,
+  body {
     background: #0a0a0a;
     color: white;
   }
@@ -47,7 +48,7 @@ const promise = new Promise(resolve => {
 
 .component {
   padding: 1rem;
-  border-radius: .5rem;
-  border: 1px solid white;
+  border-radius: 0.5rem;
+  border: 1px solid #181818;
 }
 </style>
