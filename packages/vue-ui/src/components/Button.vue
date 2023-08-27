@@ -7,7 +7,6 @@ const props = defineProps<{
 }>();
 
 const showSpinner = ref(false);
-const buttonElement = ref<HTMLButtonElement | null>(null);
 
 watchEffect(() => {
   if (props.promise instanceof Promise) {
@@ -24,7 +23,6 @@ watchEffect(() => {
 
 <template>
   <button
-    ref="buttonElement"
     class="flex gap-2 items-center relative px-4 py-2 bg-neutral-900 rounded-lg text-sm transition-all"
   >
     <TransitionGroup name="icon">
