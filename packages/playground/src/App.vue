@@ -15,7 +15,14 @@ const username = ref("");
   </main>
 </template>
 
-<style scoped>
+<style>
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: #0a0a0a;
+    color: white;
+  }
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -26,7 +33,6 @@ const username = ref("");
 
 .component {
   padding: 1rem;
-  /* background: #fafafa; */
   border-radius: 1rem;
 }
 </style>

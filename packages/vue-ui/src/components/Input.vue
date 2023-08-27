@@ -2,20 +2,26 @@
 const id = Math.random().toString();
 
 defineProps<{
-  label: string,
-  modelValue: T
+  label?: string,
+  modelValue?: T
+}>();
+
+const emit = defineEmits<{
+  (event: "update:modelValue", value: string): void
 }>();
 </script>
 
 <template>
-  <div class="flex flex-col w-fit text-sm">
-    <label :for="id" class="ml-1">{{ label }}</label>
+  <div class="flex flex-col w-fit text-sm dark:text-white">
+    <label v-if="label" :for="id" class="ml-1">{{ label }}</label>
     <input
       :id="id"
       v-bind="$attrs"
-      v-model="modelValue"
+      :value="modelValue"
+      @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       type="text"
-      class="border p-2 rounded-lg"
+      class="p-2 dark:bg-neutral-950
+        border-2 dark:border-neutral-800 rounded-lg"
     >
   </div>
 </template>
